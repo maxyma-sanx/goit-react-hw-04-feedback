@@ -33,11 +33,6 @@ export const Feedback = () => {
 
   useEffect(() => {
     setTotal(good + neutral + bad);
-
-    if (!total) {
-      return;
-    }
-
     setPositive(+((good / total) * 100).toFixed(0));
   }, [good, neutral, bad, total]);
 
