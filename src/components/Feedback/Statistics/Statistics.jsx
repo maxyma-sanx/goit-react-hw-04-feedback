@@ -30,11 +30,11 @@ export const Statistics = ({
     <StatisticsContainer>
       <StatisticsSum>
         <FaUser size={15} />
-        Total: {total()}
+        Total: {total}
       </StatisticsSum>
       <StatisticsSum>
         <FaChartLine size={20} />
-        Positive feedback: {positivePercentage()}%
+        Positive feedback: {positivePercentage}%
       </StatisticsSum>
     </StatisticsContainer>
   </>
@@ -44,6 +44,6 @@ Statistics.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
-  total: PropTypes.func.isRequired,
-  positivePercentage: PropTypes.func.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };
