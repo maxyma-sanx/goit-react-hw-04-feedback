@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { Section } from './Section';
 import { FeedbackOptions } from './FeedbackOptions';
@@ -10,8 +10,6 @@ export const Feedback = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-  const [total, setTotal] = useState(0);
-  const [positive, setPositive] = useState(0);
 
   const statisticsCounter = e => {
     const name = e.currentTarget.name;
@@ -31,10 +29,16 @@ export const Feedback = () => {
     }
   };
 
-  useEffect(() => {
-    setTotal(good + neutral + bad);
-    setPositive(+((good / total) * 100).toFixed(0));
-  }, [good, neutral, bad, total]);
+  const countTotalFeedback = () => {
+    return good + neutral + bad;
+  };
+
+  const countPositiveFeedback = () => {
+    return +((good / total) * 100).toFixed(0);
+  };
+
+  const total = countTotalFeedback();
+  const positive = countPositiveFeedback();
 
   return (
     <FeedbackContainer>
